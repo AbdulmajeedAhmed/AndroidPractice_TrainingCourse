@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myCoordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.alyafei.myapplication.Practice.FragmentsExample">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/fragment1_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="changeFragment"
+            android:text="Fragment1"
+
+            />
+
+        <Button
+            android:id="@+id/fragment2_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:onClick="changeFragment"
+            android:text="Fragment2" />
+        <Button
+            android:id="@+id/intentTest_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="testIntent"
+            android:text="ItentTest"
+
+            />
+        <fragment
+            android:id="@+id/fragment_place"
+            android:name="com.alyafei.myapplication.Practice.FragmentOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.91">
+           </fragment>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/myCoordinatorLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/myFloatButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right|bottom"
+                android:layout_marginEnd="25dp"
+                android:layout_marginLeft="6pt"
+                android:layout_marginRight="6pt"
+                android:layout_marginTop="13dp"
+                android:clickable="true"
+                app:fabSize="mini"
+                app:srcCompat="@android:drawable/btn_star_big_on" />
+        </android.support.design.widget.CoordinatorLayout>
+
+    </LinearLayout>
+
+    <!-- default fragment is FragmentOne -->
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@drawable/whitebackground"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            app:srcCompat="@drawable/search"
+            android:id="@+id/imageView"
+
+            android:layout_height="150dp" />
+
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="frute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/frute"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:text="price"
+                android:layout_width="84dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/price"
+                android:textSize="18sp"
+                android:textStyle="normal|bold" />
+
+            <ImageView
+
+                android:layout_width="160dp"
+                android:layout_height="39dp"
+                app:srcCompat="@drawable/ic_delete_black_24dp"
+                android:id="@+id/deleteImage" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
