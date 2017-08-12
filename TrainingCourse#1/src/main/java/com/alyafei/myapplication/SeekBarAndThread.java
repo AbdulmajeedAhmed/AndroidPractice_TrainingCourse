@@ -92,7 +92,6 @@ public class SeekBarAndThread extends AppCompatActivity {
             bundle.putInt("counter",counterUp);
             msg.setData(bundle);
             myHandler.sendMessage(msg);
-
             counterUp++;
             try {
                 Thread.sleep(1000);

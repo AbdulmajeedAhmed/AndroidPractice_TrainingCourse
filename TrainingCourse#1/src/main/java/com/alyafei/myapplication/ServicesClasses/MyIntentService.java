@@ -25,10 +25,10 @@ public class MyIntentService extends IntentService {
 
          /*   you cant display any thing to user because this service is working in the background, so you need to pass
             data through BroadcastReceiver*/ //MyReceiver is the class we want..
-            Intent broadCastIntent= new Intent();
-            broadCastIntent.setAction("example.Broadcast"); //example.Broadcast is the name of the receiver.
-            broadCastIntent.putExtra("msg","hello from SERVICE to broadcast receiver");
-            sendBroadcast(broadCastIntent); // this is the difference .
+            Intent mIntent= new Intent();
+            mIntent.setAction("example.Broadcast"); //example.Broadcast is the name of the receiver.
+            mIntent.putExtra("msg","hello from SERVICE to broadcast receiver");
+            sendBroadcast(mIntent); // this is the difference .
 
             try {
                 Thread.sleep(4000);

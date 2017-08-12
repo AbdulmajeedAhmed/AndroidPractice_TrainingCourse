@@ -107,7 +107,7 @@ public class JasonWithHTTPWebService extends AppCompatActivity {
         protected void onProgressUpdate(String... progress) { // you can here communicate with UI
            // Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_LONG).show();
             try {
-                // if you want to see progress[0] jason file go to C:\Users\DELL\Downloads\Abdulmajid\NotepadFiles
+
 
                 //Convert to jason ..
                 JSONObject json= new JSONObject(progress[0]); //progress[0] have string json

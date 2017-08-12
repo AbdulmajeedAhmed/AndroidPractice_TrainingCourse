@@ -121,8 +121,8 @@ public class ContantProvider_ContactsApp extends AppCompatActivity {
             // use each item
             final ContanctItem item=listOfItems.get(position);
             //get the views
-            TextView name=(TextView)view.findViewById(R.id.txvName);
-            TextView number=(TextView)view.findViewById(R.id.txvNumber);
+            TextView name=(TextView)view.findViewById(R.id.contactEmail);
+            TextView number=(TextView)view.findViewById(R.id.contactPhone);
 
             //put in them the values of the item
             name.setText(item.Name);

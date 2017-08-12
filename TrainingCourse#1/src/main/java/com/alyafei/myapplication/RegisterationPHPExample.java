@@ -1,7 +1,10 @@
 package com.alyafei.myapplication;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,10 +43,14 @@ public class RegisterationPHPExample extends AppCompatActivity {
     ListView listViewUsers;
     private ArrayList<User> users;
     private Adapter adapter;
+    MyHandler  myHandler;
+    private ProgressDialog progressDialog;;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration_phpexample);
+        myHandler= new MyHandler();
         etUserName= (EditText)findViewById(R.id.txvUsernamePHP);
         etPassword=(EditText)findViewById(R.id.txvPasswordPHP);
         // get the list view
@@ -50,6 +58,8 @@ public class RegisterationPHPExample extends AppCompatActivity {
         register=false;
         login=false;
         displayUsers=false;
+        progressBar= (ProgressBar)findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.GONE);
     }
 
     public void register(View view) {
@@ -75,6 +85,78 @@ public class RegisterationPHPExample extends AppCompatActivity {
         new MyAsyncTask().execute(url);
 
     }
+
+
+
+    int jumpTime = 0;
+  // another way to deal with the thead..
+    public void download(View view) {
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Downloading Music");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setSecondaryProgress(44);
+        progressDialog.show();
+        final int totalProgressTime = 100;
+        final Thread t = new Thread() {
+            @Override
+            public void run() {
+                while(jumpTime <totalProgressTime) {
+
+                    try {
+                        //handleThread(); //#2 way using Handler class.
+
+                        sleep(400);
+                        jumpTime += 5;
+                        Log.d("jumpTime",""+jumpTime);
+                        runOnUiThread(new Runnable() { // run in parallel with the one who have it ..
+                            @Override
+                            public void run() {
+                                progressBar.setVisibility(View.VISIBLE);
+                            }
+                        });
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                } runOnUiThread(new Runnable() { // after reaching 100, disable the bar.
+                    @Override
+                    public void run() {
+                        progressBar.setVisibility(View.GONE);
+                    }
+                });
+            }
+
+
+        };
+        t.start();
+    }
+
+    private void handleThread() {
+        // the difference is with the follwoing 5 lines..
+        Message msg= myHandler.obtainMessage();
+        Bundle bundle=new Bundle();
+        bundle.putInt("counter",jumpTime);
+        msg.setData(bundle);
+
+        myHandler.sendMessage(msg);
+        jumpTime=jumpTime+5;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private class MyHandler extends Handler{
+    @Override
+    public void handleMessage(Message msg) {
+        Log.d("handler",""+msg.getData().getInt("counter"));
+        int counter=msg.getData().getInt("counter");
+        progressDialog.setProgress(counter);
+    }
+}
+
 
 
     public class MyAsyncTask extends AsyncTask<String, String, String> {

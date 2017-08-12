@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.alyafei.myapplication.Practice.FragmentsExample">
+    tools:context="com.alyafei.myapplication.Practice.FragmentsAndIntentsExample">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,6 +38,19 @@
             android:text="ItentTest"
 
             />
+
+        <Button
+            android:id="@+id/batteryCheckButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check Battery" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCom1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:hint="Type here.." />
+
         <fragment
             android:id="@+id/fragment_place"
             android:name="com.alyafei.myapplication.Practice.FragmentOne"
