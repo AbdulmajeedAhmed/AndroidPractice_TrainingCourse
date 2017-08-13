@@ -17,6 +17,7 @@ public class AndroidPermission1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_permission);
+        display = (TextView) findViewById(R.id.display);
     }
 
 
@@ -26,7 +27,7 @@ public class AndroidPermission1 extends AppCompatActivity {
     }
 
     private void GETLocation() {
-        display = (TextView) findViewById(R.id.display);
+
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         display.setText("location lang: "+String.valueOf(location.getLongitude())+", and location lat: "+String.valueOf(location.getLatitude()));

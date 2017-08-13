@@ -45,6 +45,8 @@ public class FragmentsAndIntentsExample extends AppCompatActivity{
         bu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Dynamically register a receiver.
                 IntentFilter intentFilter= new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
                 Intent butteryStatus=registerReceiver(null,intentFilter);
 
@@ -118,6 +120,13 @@ public class FragmentsAndIntentsExample extends AppCompatActivity{
 
     public void testIntent(View view) {
 
+      /*  // Verify that there are applications registered to handle this intent
+        // (resolveActivity returns null if none are registered)
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }*/
+
 
         //1  Implicit Intent
         /*
@@ -166,6 +175,7 @@ public class FragmentsAndIntentsExample extends AppCompatActivity{
         smsIntent.putExtra("address"  , "01234");
         smsIntent.putExtra("sms_body"  , "Test ");
         try {
+
             startActivity(smsIntent);
             finish();
             Log.i("Finished sending SMS...", "");

@@ -27,7 +27,7 @@ public class Main7Activity_TimePicker extends AppCompatActivity {
 
 
     public void showTime(View view) {
-       android.app.FragmentManager fm=getFragmentManager();
+        android.app.FragmentManager fm=getFragmentManager();
         PopTime p= new PopTime();
         p.show(fm,"dd");
 

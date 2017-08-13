@@ -38,10 +38,10 @@
         <activity android:name=".SimpleForm" />
         <activity android:name=".GridViewEx" />
         <activity android:name=".Main6Activity_Spinner" />
-        <activity android:name=".Main7Activity_TimePicker" />
+        <activity android:name=".Main7Activity_TimePicker"></activity>
         <activity android:name=".SharedPreferences" />
         <activity android:name=".SQLite" />
-        <activity android:name=".AndroidPermission1" />
+        <activity android:name=".AndroidPermission1"></activity>
         <activity
             android:name=".WebViewTest"
             android:label="My Search Engine" />
@@ -50,7 +50,7 @@
         <activity android:name=".MediaPlayer" />
         <activity android:name=".Notification" />
 
-        <receiver android:name=".others.MyReceiver">
+        <receiver android:name=".ServicesClasses.MyReceiver">
             <intent-filter>
                 <action android:name="example.Broadcast" />
 
@@ -69,22 +69,21 @@
 
         <activity android:name=".MyServiceActivity" />
         <activity android:name=".JasonWithHTTPWebService" />
-        <activity android:name=".RegisterationPHPExample"> <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+        <activity android:name=".RegisterationPHPExample"></activity>
         <activity android:name=".LoginPHPExample" />
         <activity android:name=".GPSLocation1" />
-        <activity android:name=".Camera_TakePhoto">
-
-        </activity>
+        <activity android:name=".Camera_TakePhoto"></activity>
         <activity android:name=".LightSensor" />
         <activity android:name=".AcceleratorSensor" />
         <activity android:name=".ServicesClasses.TestForActivityLifeCycle" />
         <activity android:name=".Practice.FragmentsAndIntentsExample">
 
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
@@ -94,7 +93,12 @@
 
         <activity android:name=".Practice.UI_Controls" />
         <activity android:name=".Practice.Animation" />
-        <activity android:name=".Practice.JasonParsingExample">
+        <activity android:name=".Practice.JasonParsingExample"></activity>
+
+        <activity
+            android:name=".Practice.NavigationDrawerTest"
+            android:label="@string/title_activity_navigation_drawer_test"
+            android:theme="@style/AppTheme.NoActionBar">
 
 
         </activity>

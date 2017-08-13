@@ -1,4 +1,4 @@
-package com.alyafei.myapplication.others;
+package com.alyafei.myapplication.ServicesClasses;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

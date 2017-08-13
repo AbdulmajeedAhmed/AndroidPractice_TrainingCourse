@@ -51,13 +51,13 @@
             android:layout_height="wrap_content"
            android:hint="Type here.." />
 
-        <fragment
+        <FrameLayout
             android:id="@+id/fragment_place"
             android:name="com.alyafei.myapplication.Practice.FragmentOne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.91">
-           </fragment>
+           </FrameLayout>
 
         <android.support.design.widget.CoordinatorLayout
             android:id="@+id/myCoordinatorLayout2"

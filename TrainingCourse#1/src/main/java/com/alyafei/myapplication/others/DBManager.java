@@ -21,6 +21,13 @@ public class DBManager {
     public static final String ColPassWord="Password";
     static final int DBVersion=1;
 
+    public DBManager(Context context){
+        DatabaseHelperUser db=new DatabaseHelperUser(context) ;
+        sqlDB=db.getWritableDatabase();
+        //sqlDB.close();
+
+    }
+
     // create table Logins(ID integer primary key autoincrment, UserName text, Password text)
     static final String CreateTable=" CREATE TABLE IF NOT EXISTS " +TableName+
             "(ID INTEGER PRIMARY KEY AUTOINCREMENT,"+ ColUserName+
@@ -46,12 +53,7 @@ public class DBManager {
 
     }
 
-    public DBManager(Context context){
-        DatabaseHelperUser db=new DatabaseHelperUser(context) ;
-        sqlDB=db.getWritableDatabase();
-        //sqlDB.close();
 
-    }
 
     public long Insert(ContentValues contentValues){
         long ID= sqlDB.insert(TableName,"",contentValues);
